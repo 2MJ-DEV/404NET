@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+</head>
+<body class="bg-gray-50">
+    <div class="flex h-screen">
+        <!-- Barre latérale (cohérente avec les autres pages) -->
+        <aside class="w-64 bg-blue-900 text-white p-4">
+            <h2 class="text-xl font-bold mb-8 p-2 border-b border-blue-700">Office des Routes</h2>
+            <nav>
+                <ul class="space-y-2">
+                    <li><a href="dashboard.html" class="block p-2 hover:bg-blue-800">Tableau de bord</a></li>
+                    <li><a href="projects.html" class="block p-2 hover:bg-blue-800">Projets</a></li>
+                    <li><a href="reports.html" class="block p-2 hover:bg-blue-800">Rapports</a></li>
+                    <li><a href="teams.html" class="block p-2 bg-blue-800 text-white">Équipes</a></li>
+                    <li><a href="#" class="block p-2 hover:bg-blue-800">Paramètres</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Contenu principal -->
+        <main class="flex-1 p-8 overflow-auto">
+            <header class="mb-8 flex justify-between items-center">
+                <div>
+                    <h1 class="text-2xl font-bold text-blue-900">Gestion des Équipes</h1>
+                    <p class="text-gray-600">Membres, rôles et affectations aux projets</p>
+                </div>
+                <button onclick="openModal()"
+                    class="bg-blue-900 text-white px-4 py-2 hover:bg-blue-800 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
+                    Nouveau Membre
+                </button>
+            </header>
+
+            <!-- Filtres rapides -->
+            <div class="mb-6 bg-white border border-gray-300 p-4 flex space-x-4">
+                <div class="flex-1">
+                    <label class="block text-sm text-gray-700 mb-1">Rechercher</label>
+                    <input type="text" placeholder="Nom, email ou rôle..."
+                        class="w-full p-2 border border-gray-300 focus:outline-none">
+                </div>
+                <div class="w-48">
+                    <label for="roleFilter" class="block text-sm text-gray-700 mb-1">Filtrer par rôle</label>
+                    <select id="roleFilter" class="w-full p-2 border border-gray-300" title="Filtrer par rôle">
+                        <option>Tous</option>
+                        <option>Ingénieur</option>
+                        <option>Chef de projet</option>
+                        <option>Technicien</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Liste des membres -->
+            <div class="bg-white border border-gray-300 mb-6">
+                <table class="w-full">
+                    <thead class="bg-blue-900 text-white">
+                        <tr>
+                            <th class="p-3 text-left">Nom</th>
+                            <th class="p-3 text-left">Rôle</th>
+                            <th class="p-3 text-left">Email</th>
+                            <th class="p-3 text-left">Projets</th>
+                            <th class="p-3 text-left">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Membre 1 -->
+                        <tr class="border-b border-gray-200 hover:bg-blue-50">
+                            <td class="p-3 flex items-center">
+                                <div class="bg-blue-100 text-blue-900 w-8 h-8 flex items-center justify-center mr-3">
+                                    AM
+                                </div>
+                                <span class="font-medium">Amina Mbaye</span>
+                            </td>
+                            <td class="p-3">
+                                <span class="bg-green-100 text-green-800 px-2 py-1 text-sm">Chef de projet</span>
+                            </td>
+                            <td class="p-3">amina.mbaye@routes.sn</td>
+                            <td class="p-3">
+                                <span class="text-sm">RN1, Pont Thiès</span>
+                            </td>
+                            <td class="p-3">
+                                <button class="text-blue-900 hover:underline mr-3">Éditer</button>
+                                <button class="text-red-600 hover:underline">Archiver</button>
+                            </td>
+                        </tr>
+                        <!-- Membre 2 -->
+                        <tr class="border-b border-gray-200 hover:bg-blue-50">
+                            <td class="p-3 flex items-center">
+                                <div
+                                    class="bg-orange-100 text-orange-900 w-8 h-8 flex items-center justify-center mr-3">
+                                    PD
+                                </div>
+                                <span class="font-medium">Papa Diop</span>
+                            </td>
+                            <td class="p-3">
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 text-sm">Ingénieur</span>
+                            </td>
+                            <td class="p-3">papa.diop@routes.sn</td>
+                            <td class="p-3">
+                                <span class="text-sm">Éclairage Urbain</span>
+                            </td>
+                            <td class="p-3">
+                                <button class="text-blue-900 hover:underline mr-3">Éditer</button>
+                                <button class="text-red-600 hover:underline">Archiver</button>
+                            </td>
+                        </tr>
+                        <!-- Membre 3 -->
+                        <tr class="hover:bg-blue-50">
+                            <td class="p-3 flex items-center">
+                                <div
+                                    class="bg-purple-100 text-purple-900 w-8 h-8 flex items-center justify-center mr-3">
+                                    MS
+                                </div>
+                                <span class="font-medium">Mariama Sow</span>
+                            </td>
+                            <td class="p-3">
+                                <span class="bg-yellow-100 text-yellow-800 px-2 py-1 text-sm">Technicien</span>
+                            </td>
+                            <td class="p-3">mariama.sow@routes.sn</td>
+                            <td class="p-3">
+                                <span class="text-sm">RN1, Piste Rurale</span>
+                            </td>
+                            <td class="p-3">
+                                <button class="text-blue-900 hover:underline mr-3">Éditer</button>
+                                <button class="text-red-600 hover:underline">Archiver</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            <div class="flex justify-between items-center">
+                <div class="text-gray-600">
+                    Affichage de 1 à 3 sur 12 membres
+                </div>
+                <div class="flex space-x-2">
+                    <button class="p-2 border border-gray-300 bg-white hover:bg-gray-100">
+                        Précédent
+                    </button>
+                    <button class="p-2 border border-gray-300 bg-blue-900 text-white">
+                        1
+                    </button>
+                    <button class="p-2 border border-gray-300 bg-white hover:bg-gray-100">
+                        2
+                    </button>
+                    <button class="p-2 border border-gray-300 bg-white hover:bg-gray-100">
+                        Suivant
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal d'ajout (masqué par défaut) -->
+    <div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div class="bg-white p-6 w-96">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-bold text-blue-900">Ajouter un membre</h3>
+                <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700">
+                    ✕
+                </button>
+            </div>
+            <form id="addMemberForm">
+                <div class="mb-4">
+                    <label class="block text-sm text-gray-700 mb-1">Nom complet</label>
+                    <input type="text" class="w-full p-2 border border-gray-300" required placeholder="Entrez le nom complet" title="Nom complet">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm text-gray-700 mb-1">Email</label>
+                    <input type="email" class="w-full p-2 border border-gray-300" required placeholder="Entrez l'email" title="Email">
+                </div>
+                <div class="mb-4">
+                    <label for="roleSelect" class="block text-sm text-gray-700 mb-1">Rôle</label>
+                    <select id="roleSelect" class="w-full p-2 border border-gray-300" required title="Rôle">
+                        <option value="">Sélectionner...</option>
+                        <option>Ingénieur</option>
+                        <option>Chef de projet</option>
+                        <option>Technicien</option>
+                    </select>
+                </div>
+                <div class="flex justify-end space-x-3">
+                    <button type="button" onclick="closeModal()"
+                        class="px-4 py-2 border border-gray-300 hover:bg-gray-100">
+                        Annuler
+                    </button>
+                    <button type="submit" class="px-4 py-2 bg-blue-900 text-white hover:bg-blue-800">
+                        Enregistrer
+                    </button>
+                </div>
+            </form>
+        </div>
+        </div>
+
+<script src="/src/assets/js/teams.js"></script>
+<script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

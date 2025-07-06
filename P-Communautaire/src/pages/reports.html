@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+</head>
+<body class="bg-gray-50">
+    <div class="flex h-screen">
+        <!-- Barre latérale (identique aux autres pages) -->
+        <aside class="w-64 bg-blue-900 text-white p-4">
+            <h2 class="text-xl font-bold mb-8 p-2 border-b border-blue-700">Office des Routes</h2>
+            <nav>
+                <ul class="space-y-2">
+                    <li><a href="dashboard.html" class="block p-2 hover:bg-blue-800">Tableau de bord</a></li>
+                    <li><a href="projects.html" class="block p-2 hover:bg-blue-800">Projets</a></li>
+                    <li><a href="reports.html" class="block p-2 bg-blue-800 text-white">Rapports</a></li>
+                    <li><a href="#" class="block p-2 hover:bg-blue-800">Équipes</a></li>
+                    <li><a href="#" class="block p-2 hover:bg-blue-800">Paramètres</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Contenu principal -->
+        <main class="flex-1 p-8 overflow-auto">
+            <header class="mb-8 flex justify-between items-center">
+                <div>
+                    <h1 class="text-2xl font-bold text-blue-900">Rapports Analytiques</h1>
+                    <p class="text-gray-600">Données de performance et suivi des projets</p>
+                </div>
+                <div class="flex space-x-3">
+                    <button class="bg-green-700 text-white px-4 py-2 hover:bg-green-800 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                        Exporter (PDF)
+                    </button>
+                    <button class="bg-blue-900 text-white px-4 py-2 hover:bg-blue-800 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                        </svg>
+                        Exporter (Excel)
+                    </button>
+                </div>
+            </header>
+
+            <!-- Cartes de synthèse -->
+            <section class="mb-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white border border-gray-300 p-4">
+                    <h3 class="font-bold text-blue-900 mb-2">Projets par Statut</h3>
+                    <div class="h-40">
+                        <canvas id="statusChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white border border-gray-300 p-4">
+                    <h3 class="font-bold text-blue-900 mb-2">Budget par Localité</h3>
+                    <div class="h-40">
+                        <canvas id="budgetChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white border border-gray-300 p-4">
+                    <h3 class="font-bold text-blue-900 mb-2">Taux d'Avancement</h3>
+                    <div class="h-40">
+                        <canvas id="progressChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Rapport détaillé -->
+            <section class="mb-8 bg-white border border-gray-300 p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-bold text-blue-900">Rapport Trimestriel</h2>
+                    <label for="quarter-select" class="sr-only">Sélectionner le trimestre</label>
+                    <select id="quarter-select" class="p-2 border border-gray-300" aria-label="Sélectionner le trimestre">
+                        <option>Q1 2024</option>
+                        <option>Q2 2024</option>
+                        <option selected>Q3 2024</option>
+                    </select>
+                </div>
+
+                <!-- Tableau des indicateurs -->
+                <table class="w-full mb-6">
+                    <thead class="bg-blue-900 text-white">
+                        <tr>
+                            <th class="p-3 text-left">Indicateur</th>
+                            <th class="p-3 text-left">Valeur</th>
+                            <th class="p-3 text-left">Évolution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-gray-200 hover:bg-blue-50">
+                            <td class="p-3">Projets livrés</td>
+                            <td class="p-3 font-medium">8</td>
+                            <td class="p-3 text-green-600">↑ 12%</td>
+                        </tr>
+                        <tr class="border-b border-gray-200 hover:bg-blue-50">
+                            <td class="p-3">Budget consommé</td>
+                            <td class="p-3 font-medium">3.2M XOF</td>
+                            <td class="p-3 text-red-600">↓ 5%</td>
+                        </tr>
+                        <tr class="hover:bg-blue-50">
+                            <td class="p-3">Retards moyens</td>
+                            <td class="p-3 font-medium">7 jours</td>
+                            <td class="p-3 text-green-600">↓ 22%</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Graphique de performance -->
+                <div class="h-64 mt-4">
+                    <canvas id="quarterlyChart"></canvas>
+                </div>
+            </section>
+        </main>
+        </div>
+
+        <script src="/src/assets/js/reports.js"></script>
+<script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

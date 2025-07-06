@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+</head>
+
+<!-- Contenu de l'onglet Notifications -->
+<div id="notificationsContent" class="content-tab bg-white border border-gray-300 p-6">
+    <h2 class="text-xl font-bold text-blue-900 mb-6">Configuration des alertes</h2>
+
+    <!-- 1. Préférences générales -->
+    <div class="mb-8">
+        <h3 class="font-bold text-blue-900 mb-4 border-b border-gray-200 pb-2">Canaux de notification</h3>
+        <div class="space-y-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h4 class="font-medium">Email</h4>
+                    <p class="text-sm text-gray-600">Alertes quotidiennes et rappels</p>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer" for="notif-email">
+                    <input type="checkbox" id="notif-email" class="sr-only peer" checked
+                        title="Activer ou désactiver les notifications par email">
+                    <div class="w-11 h-6 bg-gray-300 peer-focus:outline-none peer-checked:bg-blue-900"></div>
+                </label>
+            </div>
+
+            <div class="flex items-center justify-between">
+                <div>
+                    <h4 class="font-medium">SMS</h4>
+                    <p class="text-sm text-gray-600">Urgences seulement</p>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" id="notif-sms" class="sr-only peer"
+                        title="Activer ou désactiver les notifications par SMS">
+                    <div class="w-11 h-6 bg-gray-300 peer-focus:outline-none peer-checked:bg-blue-900"></div>
+                </label>
+            </div>
+
+            <div class="flex items-center justify-between">
+                <div>
+                    <h4 class="font-medium">Notifications push</h4>
+                    <p class="text-sm text-gray-600">Sur l'application mobile</p>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" id="notif-push" class="sr-only peer" checked
+                        title="Activer ou désactiver les notifications push">
+                    <div class="w-11 h-6 bg-gray-300 peer-focus:outline-none peer-checked:bg-blue-900"></div>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Alertes spécifiques -->
+    <div class="mb-8">
+        <h3 class="font-bold text-blue-900 mb-4 border-b border-gray-200 pb-2">Types d'alertes</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="flex items-start">
+                <input type="checkbox" id="alert-delay" class="mt-1 mr-3" checked>
+                <div>
+                    <label for="alert-delay" class="font-medium block">Retards de projet</label>
+                    <p class="text-sm text-gray-600">Recevoir des alertes quand un projet dépasse 10% du délai</p>
+                </div>
+            </div>
+
+            <div class="flex items-start">
+                <input type="checkbox" id="alert-budget" class="mt-1 mr-3" checked>
+                <div>
+                    <label for="alert-budget" class="font-medium block">Dépassement budgétaire</label>
+                    <p class="text-sm text-gray-600">Alertes à 80% et 100% du budget consommé</p>
+                </div>
+            </div>
+
+            <div class="flex items-start">
+                <input type="checkbox" id="alert-new" class="mt-1 mr-3">
+                <div>
+                    <label for="alert-new" class="font-medium block">Nouveaux commentaires</label>
+                    <p class="text-sm text-gray-600">Notifications pour les discussions d'équipe</p>
+                </div>
+            </div>
+
+            <div class="flex items-start">
+                <input type="checkbox" id="alert-report" class="mt-1 mr-3" checked>
+                <div>
+                    <label for="alert-report" class="font-medium block">Rapports mensuels</label>
+                    <p class="text-sm text-gray-600">Reçus le 1er jour de chaque mois</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Fréquence -->
+    <div>
+        <h3 class="font-bold text-blue-900 mb-4 border-b border-gray-200 pb-2">Fréquence des résumés</h3>
+        <div class="flex flex-wrap gap-3">
+            <div class="flex items-center">
+                <input type="radio" id="frequency-daily" name="frequency" class="mr-2" checked>
+                <label for="frequency-daily">Quotidien</label>
+            </div>
+            <div class="flex items-center">
+                <input type="radio" id="frequency-weekly" name="frequency" class="mr-2">
+                <label for="frequency-weekly">Hebdomadaire</label>
+            </div>
+            <div class="flex items-center">
+                <input type="radio" id="frequency-none" name="frequency" class="mr-2">
+                <label for="frequency-none">Désactivé</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-8">
+        <button class="bg-blue-900 text-white px-6 py-2 hover:bg-blue-800">
+            Enregistrer les préférences
+        </button>
+    </div>
+</div>
+
+<script src="/src/assets/js/dashboard.js"></script>
+<script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+### 🔒 Générique (OS/Editeurs) ###
+.DS_Store
+*.swp
+.idea/
+.vscode/
+*.env
+.env.local
+*.log
+
+### 📦 Node.js ###
+node_modules/
+dist/
+.turbo/
+.cache/
+*.tsbuildinfo
+
+### 🌐 Frontend (React/Vue/Next.js/etc.) ###
+.next/
+.nuxt/
+.out/
+.gatsby-build/
+.vite/
+*.min.js
+*.min.css
+
+### 🐘 Backend (PHP/Python/etc.) ###
+__pycache__/
+*.pyc
+vendor/
+.env
+
+### 🗄️ Bases de données / Cache ###
+*.sqlite
+*.db
+*.dump
+.redis*
+
+### 🛠️ Outils de build ###
+.eslintcache
+.pnp.*
+.yarn/
+.yarn-integrity
+.pnpm-debug.log
+
+### 🚀 Déploiement ###
+.vercel/
+.netlify/
+.serverless/
+.awscache/

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+</head>
+
+<body class="bg-gray-50">
+    <div class="flex h-screen">
+        <!-- Barre latérale (bleu foncé) -->
+        <aside class="w-64 bg-blue-900 text-white p-4">
+            <h2 class="text-xl font-bold mb-8 p-2 border-b border-blue-700">Office des Routes</h2>
+            <nav>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="#" class="block p-2 bg-blue-800 text-white">Tableau de bord</a>
+                    </li>
+                    <li>
+                        <a href="./projects.html" class="block p-2 hover:bg-blue-800">Projets</a>
+                    </li>
+                    <li>
+                        <a href="./reports.html" class="block p-2 hover:bg-blue-800">Rapports</a>
+                    </li>
+                    <li>
+                        <a href="./teams.html" class="block p-2 hover:bg-blue-800">Équipes</a>
+                    </li>
+                    <li>
+                        <a href="./settings.html" class="block p-2 hover:bg-blue-800">Paramètres</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Contenu principal -->
+        <main class="flex-1 p-8">
+            <header class="mb-8">
+                <h1 class="text-2xl font-bold text-blue-900">Tableau de bord</h1>
+                <p class="text-gray-600">Suivi des projets communautaires</p>
+            </header>
+
+            <!-- Cartes de statistiques -->
+            <section class="mb-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-white border border-gray-300 p-4">
+                        <h3 class="font-bold text-blue-900">Projets actifs</h3>
+                        <p class="text-2xl text-blue-600">12</p>
+                    </div>
+                    <div class="bg-white border border-gray-300 p-4">
+                        <h3 class="font-bold text-green-800">Budget total</h3>
+                        <p class="text-2xl text-green-600">5.2M USD</p>
+                    </div>
+                    <div class="bg-white border border-gray-300 p-4">
+                        <h3 class="font-bold text-orange-800">Taux d'avancement</h3>
+                        <p class="text-2xl text-orange-600">68%</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Liste des projets (tableau) -->
+            <section>
+                <h2 class="text-xl font-bold text-blue-900 mb-4">Projets récents</h2>
+                <div class="bg-white border border-gray-300">
+                    <table class="w-full">
+                        <thead class="bg-blue-900 text-white">
+                            <tr>
+                                <th class="p-3 text-left">Nom</th>
+                                <th class="p-3 text-left">Localité</th>
+                                <th class="p-3 text-left">Statut</th>
+                                <th class="p-3 text-left">Échéance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-200 hover:bg-blue-50">
+                                <td class="p-3">Réhabilitation RN1</td>
+                                <td class="p-3">Kinshasa</td>
+                                <td class="p-3"><span class="bg-blue-100 text-blue-800 p-1">En cours</span></td>
+                                <td class="p-3">15/10/2025</td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-blue-50">
+                                <td class="p-3">Construction pont</td>
+                                <td class="p-3">Lubumbashi</td>
+                                <td class="p-3"><span class="bg-orange-100 text-orange-800 p-1">Planifié</span></td>
+                                <td class="p-3">20/12/2025</td>
+                            </tr>
+                            <tr class="hover:bg-blue-50">
+                                <td class="p-3">Éclairage urbain</td>
+                                <td class="p-3">Likasi</td>
+                                <td class="p-3"><span class="bg-green-100 text-green-800 p-1">Terminé</span></td>
+                                <td class="p-3">05/06/2025</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="/src/assets/js/dashboard.js"></script>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

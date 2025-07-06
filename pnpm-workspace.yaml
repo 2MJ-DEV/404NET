@@ -1,0 +1,4 @@
+packages:
+  - 'Home/**'
+  - 'L-UPL/**'
+  - 'P-Communautaire'
